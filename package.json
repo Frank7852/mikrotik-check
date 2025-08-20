@@ -8,6 +8,6 @@
   },
   "dependencies": {
     "express": "^4.18.2",
-    "node-routeros": "1.7.0"
+    "node-routeros": "1.6.9"
   }
 }
