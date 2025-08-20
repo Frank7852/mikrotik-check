@@ -1,0 +1,13 @@
+{
+  "name": "mikrotik-check",
+  "version": "1.0.0",
+  "description": "Site básico para testar conexão com MikroTik API",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "node-routeros": "^4.1.1"
+  }
+}

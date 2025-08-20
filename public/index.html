@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Teste MikroTik API</title>
+</head>
+<body>
+  <h1>Verificar conexão com MikroTik</h1>
+
+  <label>IP do MikroTik:</label>
+  <input type="text" id="host" placeholder="192.168.88.1"><br>
+
+  <label>Usuário:</label>
+  <input type="text" id="user" placeholder="admin"><br>
+
+  <label>Senha:</label>
+  <input type="password" id="password"><br>
+
+  <label>Porta:</label>
+  <input type="number" id="port" placeholder="8728"><br>
+
+  <button onclick="checkConnection()">Verificar</button>
+
+  <pre id="result"></pre>
+
+  <script>
+    async function checkConnection() {
+      const host = document.getElementById("host").value;
+      const user = document.getElementById("user").value;
+      const password = document.getElementById("password").value;
+      const port = document.getElementById("port").value;
+
+      const res = await fetch("/check", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ host, user, password, port })
+      });
+
+      const data = await res.json();
+      document.getElementById("result").textContent = JSON.stringify(data, null, 2);
+    }
+  </script>
+</body>
+</html>
